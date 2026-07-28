@@ -1,0 +1,59 @@
+site_name: go-ruby-opentype docs
+site_description: "The Ruby face of the go-opentype text stack — a pure-Go gem core that rbgo binds as require \"opentype\"."
+site_url: https://go-ruby-opentype.github.io/docs/
+repo_url: https://github.com/go-ruby-opentype
+repo_name: go-ruby-opentype
+edit_uri: ""
+
+theme:
+  name: material
+  logo: assets/logo.svg
+  favicon: assets/logo.svg
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.instant
+    - content.code.copy
+    - search.suggest
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+extra:
+  version:
+    provider: mike
+    default: latest
+
+nav:
+  - Overview: index.md
+  - API: api.md
+  - Getting started in rbgo: rbgo.md
+  - How it maps to go-opentype: mapping.md
+  - Contributing: contributing.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
