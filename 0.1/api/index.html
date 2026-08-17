@@ -700,16 +700,16 @@ one <code>Face</code> per goroutine/thread).</p>
 </tbody>
 </table>
 <p><code>glyph_info</code> returns:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>{ &quot;found&quot;=&gt;, &quot;advance&quot;=&gt;,
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  &quot;bounds&quot;=&gt;{&quot;min_x&quot;=&gt;, &quot;min_y&quot;=&gt;, &quot;max_x&quot;=&gt;, &quot;max_y&quot;=&gt;, &quot;width&quot;=&gt;, &quot;height&quot;=&gt;},
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  &quot;origin&quot;=&gt;{&quot;x&quot;=&gt;, &quot;y&quot;=&gt;},
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  &quot;mask&quot;=&gt;{&quot;width&quot;=&gt;, &quot;height&quot;=&gt;, &quot;stride&quot;=&gt;, &quot;pix&quot;=&gt;} }  # present only when found
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>{ "found"=&gt;, "advance"=&gt;,
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  "bounds"=&gt;{"min_x"=&gt;, "min_y"=&gt;, "max_x"=&gt;, "max_y"=&gt;, "width"=&gt;, "height"=&gt;},
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  "origin"=&gt;{"x"=&gt;, "y"=&gt;},
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  "mask"=&gt;{"width"=&gt;, "height"=&gt;, "stride"=&gt;, "pix"=&gt;} }  # present only when found
 </code></pre></div>
 <h2 id="shape">Shape<a class="headerlink" href="#shape" title="Permanent link">&para;</a></h2>
 <p><code>Opentype.shape(face, text, opts)</code> runs the HarfBuzz-lite shaper and returns
 an Array of Hashes, one per glyph:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>{ &quot;gid&quot;=&gt;, &quot;cluster&quot;=&gt;, &quot;x_advance&quot;=&gt;, &quot;y_advance&quot;=&gt;,
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  &quot;x_offset&quot;=&gt;, &quot;y_offset&quot;=&gt;, &quot;scale&quot;=&gt; }
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>{ "gid"=&gt;, "cluster"=&gt;, "x_advance"=&gt;, "y_advance"=&gt;,
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  "x_offset"=&gt;, "y_offset"=&gt;, "scale"=&gt; }
 </code></pre></div>
 <p><code>opts</code> is a Hash (or <code>nil</code>) carrying:</p>
 <table>
