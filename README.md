@@ -1,8 +1,7 @@
 # go-ruby-opentype/docs
 
 Documentation for [go-ruby-opentype](https://github.com/go-ruby-opentype/opentype),
-built with [MkDocs Material](https://squidfunk.github.io/mkdocs-material/) and
-versioned with [mike](https://github.com/jimporter/mike). Served at
+built with [Hugo](https://gohugo.io/) and this fleet's [Hextra fork](https://github.com/tannevaled/hextra) — upstream Hextra plus the opt-in features the fleet's sites use. Served at
 <https://go-ruby-opentype.github.io/docs/>.
 
 ## Build locally

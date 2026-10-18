@@ -1,4 +1,9 @@
-# API
+---
+title: "API"
+weight: 20
+---
+
+# API {#api}
 
 The Ruby-facing surface is three handles — `Module`, `Font`, `Face` — plus the
 uniform dynamic entry point, `Call`, that an rbgo binding drives from
@@ -6,7 +11,7 @@ uniform dynamic entry point, `Call`, that an rbgo binding drives from
 its snake_case name (e.g. `Font.GlyphIndex` → `glyph_index`); `Methods(recv)`
 lists them at runtime.
 
-## Module
+## Module {#module}
 
 The package-level receiver — the `Opentype` module under rbgo. Stateless,
 safe for concurrent use.
@@ -26,7 +31,7 @@ safe for concurrent use.
 `base` is `"ltr"`, `"rtl"` or `"auto"` (also the default for an empty or
 unrecognised string).
 
-## Font
+## Font {#font}
 
 A parsed font. Immutable, safe for concurrent use.
 
@@ -38,7 +43,7 @@ A parsed font. Immutable, safe for concurrent use.
 | `named_instances` | Array of Hashes `{"subfamily_name_id", "flags", "coordinates", "post_script_name_id"}` |
 | `face(px)` | a `Face` handle, the font sized at `px` pixels |
 
-## Face
+## Face {#face}
 
 A sized font. Caches rasterised glyphs; **not** safe for concurrent use (size
 one `Face` per goroutine/thread).
@@ -62,7 +67,7 @@ one `Face` per goroutine/thread).
   "mask"=>{"width"=>, "height"=>, "stride"=>, "pix"=>} }  # present only when found
 ```
 
-## Shape
+## Shape {#shape}
 
 `Opentype.shape(face, text, opts)` runs the HarfBuzz-lite shaper and returns
 an Array of Hashes, one per glyph:
@@ -83,21 +88,21 @@ an Array of Hashes, one per glyph:
 
 A `nil` face yields an empty Array.
 
-## Bidi
+## Bidi {#bidi}
 
 `visual_order` and `resolve_levels` on `Module` implement the Unicode
 Bidirectional Algorithm (UAX #9) directly — mixed left-to-right/right-to-left
 text (e.g. Latin mixed with Arabic or Hebrew) resolves without any
 `golang.org/x/text` dependency.
 
-## Fonts
+## Fonts {#fonts}
 
 `families`, `load`, `most_legible` and `default_font` on `Module` expose the
 [go-opentype/fonts](https://github.com/go-opentype/fonts) registry: 44
 bundled, legible, permissively-licensed families, with Atkinson Hyperlegible
 embedded directly as the default.
 
-## Dynamic dispatch
+## Dynamic dispatch {#dynamic-dispatch}
 
 ```
 Call(recv, method, *args) -> result
@@ -110,4 +115,4 @@ Integers/Floats to Go ints or runes, Strings to Go strings or `[]byte`,
 Hashes to `map[string]any`, `nil` to the zero value of pointer/slice/map
 parameters. A trailing Go `error` return is unwrapped into `Call`'s own
 error. This is the single entry point an rbgo `method_missing` binding
-drives — see [Getting started in rbgo](rbgo.md).
+drives — see [Getting started in rbgo]({{< relref "rbgo.md" >}}).

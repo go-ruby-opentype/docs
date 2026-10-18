@@ -1,14 +1,22 @@
-# Getting started in rbgo
+---
+title: "Getting started in rbgo"
+weight: 30
+---
 
-!!! note "Status"
-    The `require "opentype"` binding lives in
-    [go-embedded-ruby/ruby](https://github.com/go-embedded-ruby/ruby) (rbgo)
-    and is **pending** in that repo. This page documents the intended
-    surface — everything below is exactly what `go-ruby-opentype/opentype`
-    already provides today via [`Call`](api.md#dynamic-dispatch); only the
-    thin `method_missing` shim inside rbgo is outstanding.
+# Getting started in rbgo {#getting-started-in-rbgo}
 
-## Why a separate adapter repo
+{{< callout type="info" >}}
+**Status**
+
+The `require "opentype"` binding lives in
+[go-embedded-ruby/ruby](https://github.com/go-embedded-ruby/ruby) (rbgo)
+and is **pending** in that repo. This page documents the intended
+surface — everything below is exactly what `go-ruby-opentype/opentype`
+already provides today via [`Call`]({{< relref "api.md#dynamic-dispatch" >}}); only the
+thin `method_missing` shim inside rbgo is outstanding.
+{{< /callout >}}
+
+## Why a separate adapter repo {#why-a-separate-adapter-repo}
 
 `go-ruby-opentype/opentype` has **no import of rbgo or the Ruby runtime**. It
 is a standalone Go library whose handles (`Module`, `Font`, `Face`) already
@@ -21,7 +29,7 @@ job, once wired, is only to:
 3. wrap the `Font`/`Face` handles returned by `open_font`/`face` as Ruby
    objects whose own `method_missing` also routes through `Call`.
 
-## Intended usage
+## Intended usage {#intended-usage}
 
 ```ruby
 require "opentype"
@@ -45,7 +53,7 @@ puts Opentype.visual_order("aب1", "auto")
 Opentype.families.each { |f| puts f["name"] }
 ```
 
-## Argument and result shapes
+## Argument and result shapes {#argument-and-result-shapes}
 
 | Ruby side | Go side |
 | --- | --- |
@@ -60,7 +68,7 @@ Opentype.families.each { |f| puts f["name"] }
 Any error from the underlying Go call raises inside `Call` and should surface
 as a Ruby exception once wired into rbgo's error-mapping convention.
 
-## Standalone Go usage today
+## Standalone Go usage today {#standalone-go-usage-today}
 
 Everything above is already exercised, without Ruby, in the
 [README](https://github.com/go-ruby-opentype/opentype#usage-from-go) and in

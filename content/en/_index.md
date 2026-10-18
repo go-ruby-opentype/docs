@@ -1,4 +1,9 @@
-# go-ruby-opentype
+---
+title: "Overview"
+weight: 10
+---
+
+# go-ruby-opentype {#go-ruby-opentype}
 
 The pure-Go, Ruby-runtime-independent core of the Ruby **`opentype`** gem — a
 complete text stack (font parsing, sized faces, complex-script shaping, the
@@ -25,7 +30,7 @@ and coerces the arguments, which is exactly what an rbgo binding drives from
 usable as a standalone Go library — a sibling of `go-ruby-regexp/regexp`,
 `go-ruby-erb/erb` and `go-ruby-dimail/dimail`.
 
-## At a glance
+## At a glance {#at-a-glance}
 
 - **CGO-free** — builds and tests identically on `amd64`, `arm64`, `riscv64`,
   `loong64`, `ppc64le`, `s390x`, plus `js/wasm`.
@@ -35,13 +40,13 @@ usable as a standalone Go library — a sibling of `go-ruby-regexp/regexp`,
 - Backed by [go-opentype](https://github.com/go-opentype) (the typed engine,
   shaper, bidi implementation and font registry).
 
-## Install
+## Install {#install}
 
 ```sh
 go get github.com/go-ruby-opentype/opentype
 ```
 
-See [API](api.md) for the full Ruby-facing surface, [Getting started in
-rbgo](rbgo.md) for the `require "opentype"` workflow, and [How it maps to
-go-opentype](mapping.md) for how each handle relates to the underlying
+See [API]({{< relref "api.md" >}}) for the full Ruby-facing surface, [Getting started in
+rbgo]({{< relref "rbgo.md" >}}) for the `require "opentype"` workflow, and [How it maps to
+go-opentype]({{< relref "mapping.md" >}}) for how each handle relates to the underlying
 libraries.
