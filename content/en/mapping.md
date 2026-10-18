@@ -1,4 +1,9 @@
-# How it maps to go-opentype
+---
+title: "How it maps to go-opentype"
+weight: 40
+---
+
+# How it maps to go-opentype {#how-it-maps-to-go-opentype}
 
 `go-ruby-opentype/opentype` does not reimplement any text-stack logic. It is
 a thin adapter: every handle wraps a value from a
@@ -19,7 +24,7 @@ one- or two-line call into it, reshaping the result into a Ruby-shaped value.
 | `Face.GlyphInfo` | `(*opentype.Face).GlyphMask` | the `(bounds, mask, origin, advance, ok)` tuple becomes a nested Hash; `mask` (an `*image.Alpha`) is present only when found, as `{width, height, stride, pix}` |
 | `Face.SetHinting` / `.SetVariation` | `(*opentype.Face).SetHinting`, `.SetVariation` | `SetVariation`'s coordinate Hash is filtered to numeric values and echoed back normalised |
 
-## What stays entirely upstream
+## What stays entirely upstream {#what-stays-entirely-upstream}
 
 - **Parsing** (`cmap`, `glyf` TrueType outline decoding) and **rasterisation**
   (4×4 supersampled anti-aliasing) — [`go-opentype/opentype`](https://github.com/go-opentype/opentype).
@@ -38,7 +43,7 @@ correctness*, *rasterisation quality* or *bidi conformance* belong upstream in
 go-opentype; reports about *argument coercion*, *the Hash/Array shape of a
 result*, or *`Call`/`Methods` dispatch* belong here.
 
-## Why the split
+## Why the split {#why-the-split}
 
 This mirrors every other `go-ruby-*` adapter over a typed Go library — see
 [`go-ruby-dimail/dimail`](https://github.com/go-ruby-dimail/dimail) over
